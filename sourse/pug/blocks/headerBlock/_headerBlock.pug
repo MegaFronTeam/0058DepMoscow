@@ -2,10 +2,11 @@ mixin headerBlock()
 	// start headerBlock
 	+b.headerBlock.section#headerBlock&attributes(attributes)
 		.container
-			+b.section-title.text-center
-				h2 headerBlock ds dfsdfdsfsd
-				+icon('telegram')
-				+iconC('telegram')
-			.row
-						
+			.item-wrap.item-wrap_white.item-wrap-lg: +e.row.row
+				+e.col.col-lg-6.order-lg-last
+					+e.img-wrap: +img(src="img/sHeaderBlock-img.png", alt="")
+				+e.col.col-lg-6
+					+b.section-title
+						h1 Приветствуем вас на образовательном портале для руководителей ТОИВ
+					+e.text.text_large  Мы собрали в одном месте всё, что может понадобиться для вашего развития: от полезных материалов и учебных пособий до базы контактов для нетворкинга и обмена опытом.
 	// end headerBlock

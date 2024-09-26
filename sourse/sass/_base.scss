@@ -443,6 +443,12 @@ iframe {
 	box-shadow: none !important;
 }
 
+.btn {
+  
+	@include media-breakpoint-down(lg) {
+    width: 100%;
+  }
+}
 
 .fancybox__content :focus:not(.carousel__button.is-close){
 	outline: none !important;
@@ -471,4 +477,85 @@ iframe {
 		height: 100%;
 		object-fit: cover;
 	}
+}
+
+h1, .h1 {
+  font-size: rem(30);
+	@include media-breakpoint-up(lg) {
+    font-size: rem(44);
+  }
+}
+
+h2, .h2 {
+  font-size: rem(25);
+	@include media-breakpoint-up(lg) {
+    font-size: rem(40);
+  }
+}
+h3, .h3 {
+  font-size: rem(22);
+	@include media-breakpoint-up(lg) {
+    font-size: rem(32);
+  }
+}
+
+.text_large {
+  font-size: rem(19);
+  @include media-breakpoint-up(lg) {
+    font-size: rem(24);
+  }
+}
+
+.item-wrap {
+  padding: rem(16);
+  border-radius: rem(16);
+	@include media-breakpoint-up(lg) {
+    border-radius: rem(24);
+  }
+  &-lg {
+    @include media-breakpoint-up(lg) {
+      border-radius: rem(32);
+      padding-left: rem(48);
+    }
+  }
+  &-md {
+    @include media-breakpoint-up(lg) {
+      border-radius: rem(32);
+      padding: rem(40);
+    }
+  }
+
+  &_white {
+    background: $white;
+  }
+  &_primary {
+    background: $primary;
+    color: $white;
+  }
+}
+
+p {
+  @include media-breakpoint-up(lg) {
+    font-size: rem(18);
+  }
+}
+.container-fluid {
+  max-width: rem(1232);
+}
+
+.btn-warning {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: #1A1230;
+  --bs-btn-border-color: #1A1230;
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: #4f4646;
+  --bs-btn-hover-border-color: #453b3b;
+  --bs-btn-focus-shadow-rgb: 79, 70, 70;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #595151;
+  --bs-btn-active-border-color: #453b3b;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+  --bs-btn-disabled-color: #fff;
+  --bs-btn-disabled-bg: #302525;
+  --bs-btn-disabled-border-color: #302525;
 }

@@ -1,0 +1,37 @@
+mixin sAgenda(data)
+	// start sAgenda
+	+b.SECTION.sAgenda.section#sAgenda&attributes(attributes)
+		.container
+			.item-wrap.item-wrap_primary.item-wrap-md: +e.row.row
+				+e.col.col-lg-auto.order-lg-last
+					+e.img-wrap: +img(src="img/svg/prize.svg", alt="").img
+				+e.col.col-lg
+					+b.section-title
+						h2 Наша цель
+					+e.text.text_large Помочь вам раскрыть свой потенциал и достигнуть новых вершин в карьере!
+			.item-wrap.item-wrap_white.item-wrap-md: +e.item-row.row
+				+e.col
+					h3 Основные разделы нашего сайта
+				+e.col.col-lg-6
+					+agendaItem('Нетворкинг', 'Предназначен для того, чтобы вы могли расширить свои профессиональные контакты для решения профессиональных задач.')
+						ul
+							li Узнавайте основную информацию о коллегах
+							li Обменивайтесь знаниями и экспертизой
+							li Находите точки соприкосновения для достижения профессиональных целей
+				+e.col.col-lg-6.col-last
+					+agendaItem('Полезные материалы', 'Ваш персональный архив знаний. Здесь собраны учебные материалы, презентации спикеров по пройденным темам, видеозаписи вебинаров.')
+						ul
+							li Загружайте и делитесь материалами
+							li Находите и скачивайте нужные вам файлы
+							li Вся полезная информация всегда «под рукой»
+
+	// end sAgenda
+
+mixin agendaItem(title, text)
+	+b.agenda-item
+		.wrap
+			+e.title.text_large=title
+			+e.text=text
+			if block
+				block
+		+e.btn.btn.small.btn-outline-primary(hrerf='#') Перейти

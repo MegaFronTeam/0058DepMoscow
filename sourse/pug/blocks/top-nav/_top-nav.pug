@@ -20,15 +20,14 @@ mixin mob-mnu()
 mixin top-nav() 
 	// start top-nav
 	+b.top-nav.block-with-lazy
-		.container
+		.container-fluid
 			+e.row.row
-				.col-4
-				.col.order-lg-0.order-last
-					.menu-mobile.menu-mobile--js
-						.menu-mobile__inner
-							+menu-toggle()
-							+mnu()
-					
-				.col-auto.d-lg-none
-					+menu-toggle()
+				+e.col-logo.col-auto.order-first.d-none.d-lg-block
+					+e.logo(href='/')
+						+img('img/svg/logo-dark.svg')
+				.col
+					+mnu()
+				.col-auto.d-none.d-lg-block
+					+e.user-wrap: a(href='#'): +icon('user-desktop')
+
 	// end top-nav

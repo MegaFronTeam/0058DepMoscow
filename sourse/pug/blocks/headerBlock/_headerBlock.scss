@@ -2,11 +2,7 @@
 .headerBlock {
 	// --sPT: #{rem()};
 	// --sPB: #{rem()};
-	// --sTPB: #{rem()}; 
-	min-height: 100vh;
-	min-height: calc(var(--vh, 1vh) * 100);
-	
-	
+	// --sTPB: #{rem()};
 	&__row{
 		// --bs-gutter-x: #{rem()};
 		--bs-gutter-y: var(--bs-gutter-x);
@@ -14,15 +10,53 @@
 	}
 	.section-title{
 		
+    @include media-breakpoint-up(lg) {
+      margin-top: calc(48px - 16px);
+    }
 	}
 	&__col{
 
 	}
-	&__item{
+	&__text {
+    @include media-breakpoint-up(lg) {
+      line-height: 1.33;
+      margin-bottom: rem(50);
+    }
+    @include media-breakpoint-up(xl) {
+      margin-bottom: rem(114);
+    }
 
 	}
-	&__slide{
-		height: auto;
+	&__img-wrap {
+    // overflow: hidden;
+    // width: 100%;
+    // height: auto;
+      @include media-breakpoint-up(lg) {
+        height: calc(100% + 32px);
+        position: relative;
+        margin: rem(-16) rem(-16) rem(-16) 0;
+      }
+      @include media-breakpoint-up(xxl) {
+        margin-left: rem(40);
+      }
+    img {
+      border-radius: rem(8);
+      max-width: 100%;
+      width: 100%;
+      
+      @include media-breakpoint-up(lg) {
+        border-radius: 0 rem(32) rem(32) 0;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: top;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        z-index: 1;
+      }
+    }
 	}
 
 	@include media-breakpoint-up(xl) {}
