@@ -59,6 +59,52 @@ function eventHandler() {
 		slideToClickedSlide: true,
 		freeModeMomentum: true,
 	});
+
+  window.addEventListener('load', () => {
+    const user = document.querySelector('.top-nav__user-wrap');
+    const settings = document.querySelector('.top-nav__settings');
+
+    if (user) {
+
+      user.addEventListener('click', () => {
+        settings.classList.toggle('d-none');
+      });
+
+      document.addEventListener('click', (event) => {
+        const isClickInsideSettings = settings.contains(event.target);
+        const isClickInsideUser = user.contains(event.target);
+
+        if (!isClickInsideSettings && !isClickInsideUser) {
+          settings.classList.add('d-none');
+        }
+      });
+    }
+  });
+
+  /* cookie */
+	let cookie = document.querySelector(".cookie");
+	let cookieClose = document.querySelector(".cookie .close");
+	if (cookieClose) {
+		cookieClose.addEventListener("click", () => cookie.classList.add("closed"));
+	}
+
+  /* password */
+
+
+  $(".btn-toggle-type-input").click(function(){
+    let icon = $(this).find("svg.icon use")
+    let iconId = $(this).find("svg.icon use").attr("xlink:href").split("#")[1];
+
+
+    const opt = {
+      'eye-off':  ['eye','password'],
+      'eye':  ['eye-off','text'],
+    }
+    $(this).parent().find("input").attr("type", opt[iconId][1]);
+    icon.attr("xlink:href",`img/svg/sprite.svg#${opt[iconId][0]}`)
+  })
+
+
 }
 if (document.readyState !== "loading") {
 	eventHandler();

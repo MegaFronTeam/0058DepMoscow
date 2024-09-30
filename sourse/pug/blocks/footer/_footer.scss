@@ -1,26 +1,86 @@
 .footer {
-		
+	border-top: 1px solid $gray-400;
+  @include media-breakpoint-up(lg) {
+    border: none;
+  }
 	margin-top: auto;
-// --sPT: #{rem()};
-	// --sPB: #{rem()};
+  --sPT: #{rem(16)};
+	--sPB: #{rem(77)};
 	// --sTPB: #{rem()};
+  @include media-breakpoint-up(lg) {
+    --sPT: #{rem(35)};
+    --sPB: #{rem(35)};
+  }
 	&__row{
 		// --bs-gutter-x: #{rem()};
-		--bs-gutter-y: var(--bs-gutter-x);
+		--bs-gutter-y: #{rem(24)};
+    padding-left: rem(16);
+    padding-right: rem(16);
+    @include media-breakpoint-up(lg) {
+      align-items: center;
+      --bs-gutter-y: #{rem(0)};
+    }
 
 	}
-	.section-title{
-		
-	}
-	&__col{
+  color: $primary;
+  @include media-breakpoint-up(lg) {
+    color: $white;
+  }
 
-	}
-	&__item{
+  position: relative;
+  
+  @include media-breakpoint-up(lg) {
+    &:before {
+      content: '';
+      height: calc(100% + 1px);
+      width: 50vw;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: -1;
 
-	}
-	&__slide{
-		height: auto;
-	}
+      background: $primary;
+      border-radius: 0 32px 0 0;
+    }
+
+    &:after {
+      content: '';
+      height: calc(100% + 1px);
+      width: 50vw;
+      position: absolute;
+      right: 0;
+      top: 0;
+      z-index: -1;
+
+      background: $red-600;
+      border-radius: 32px 0 0 0;
+    }
+  }
+
+	.wrap-primary {
+    display: flex;
+    justify-content: space-between;
+    gap: rem(16);
+    @include media-breakpoint-up(lg) {
+      align-items: center;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-right: rem(34);
+      gap: rem(46);
+    }
+  }
+	.wrap-dark {
+    display: flex;
+    justify-content: space-between;
+
+    font-size: rem(14);
+    @include media-breakpoint-up(lg) {
+      justify-content: flex-end;
+      gap: rem(32);
+
+      font-size: rem(18);
+    }
+  }
 // 
 @include media-breakpoint-up(xl) {}
 

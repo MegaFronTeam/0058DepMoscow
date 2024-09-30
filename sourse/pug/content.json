@@ -1,9 +1,9 @@
 {
 	"nav":[
-		{ "name":"Главная", "url":"#", "icon":"home"},
-		{	"name":"Нетворкинг", "url":"#", "icon":"net"},
-		{ "name":"Полезные материалы", "url":"#", "icon":"study"},
-		{ "name":"Профиль", "url":"#", "icon":"user"}
+		{ "name":"Главная", "nameMob":"Главная","url":"#", "icon":"home"},
+		{	"name":"Нетворкинг", "nameMob":"Нетворкинг", "url":"#", "icon":"net"},
+		{ "name":"Полезные материалы","nameMob":"Материалы", "url":"#", "icon":"study"},
+		{ "name":"Профиль", "nameMob":"Профиль", "url":"#", "icon":"user"}
 	],
 	"social":[
 		"fb","instagram","telegram"

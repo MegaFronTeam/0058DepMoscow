@@ -111,3 +111,58 @@
 	width: auto;
 	// margin-right: rem(32);
 }
+
+
+.cookie {
+  @include mt;
+  position: fixed;
+  width: calc(100% - 16px);
+  left: 8px;
+  bottom: rem(60);
+  @include media-breakpoint-up(lg) {
+    bottom: rem(14);
+    padding: rem(16) rem(40);
+    border-radius: 40px;
+    max-width: rem(1248);
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  border-radius: 32px;
+  background-color: $white;
+  box-shadow:  0 10px 24px 0 rgba(51, 64, 77, 0.15);
+  padding: rem(24);
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 600;
+
+  // display: none; // ! Потом убрать
+  &.closed {
+    // pointer-events: none;
+    opacity: 0 !important;
+    transition-delay: 0s !important;
+    visibility: hidden;
+  }
+  p {
+    line-height: 112%;
+  }
+  @include media-breakpoint-up(lg) {
+    flex-direction: row;
+    align-items: center;
+    gap: rem(38);
+    p {
+      margin-bottom: 0;
+    }
+  }
+  .close {
+    @include mt;
+    cursor: pointer;
+    padding: rem(16) rem(16);
+    font-size: rem(17);
+    @include media-breakpoint-up(md) {
+      padding: rem(16) rem(32);
+      font-size: rem(13);
+    }
+  }
+}

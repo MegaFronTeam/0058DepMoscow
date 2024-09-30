@@ -8,4 +8,12 @@ mixin mnu()
 						+icon(`${link.icon}`)
 						span=link.name
 
+mixin mnu-mob()
+	nav
+		ul.menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
+			each link in nav
+				li.menu-item(itemprop="item" )
+					a(href= link.url itemprop="url")
+						+icon(`${link.icon}`)
+						span=link.nameMob
 //- menu

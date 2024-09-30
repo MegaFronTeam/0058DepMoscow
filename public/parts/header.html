@@ -9,7 +9,29 @@
 					<a class="top-nav__logo" href="/"><img src="img/svg/logo-dark.svg" alt="" loading="lazy"/>
 					</a>
 				</div>
-				<div class="col">
+				<div class="col d-lg-none">
+					<nav>
+						<ul class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
+							<li class="menu-item" itemprop="item"><a href="#" itemprop="url">
+									<svg class="icon icon-home ">
+										<use xlink:href="img/svg/sprite.svg#home"></use>
+									</svg><span>Главная</span></a></li>
+							<li class="menu-item" itemprop="item"><a href="#" itemprop="url">
+									<svg class="icon icon-net ">
+										<use xlink:href="img/svg/sprite.svg#net"></use>
+									</svg><span>Нетворкинг</span></a></li>
+							<li class="menu-item" itemprop="item"><a href="#" itemprop="url">
+									<svg class="icon icon-study ">
+										<use xlink:href="img/svg/sprite.svg#study"></use>
+									</svg><span>Материалы</span></a></li>
+							<li class="menu-item" itemprop="item"><a href="#" itemprop="url">
+									<svg class="icon icon-user ">
+										<use xlink:href="img/svg/sprite.svg#user"></use>
+									</svg><span>Профиль</span></a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="col-8 d-none d-lg-block">
 					<nav>
 						<ul class="menu" itemscope="itemscope" itemtype="http://schema.org/SiteNavigationElement">
 							<li class="menu-item" itemprop="item"><a href="#" itemprop="url">
@@ -31,11 +53,23 @@
 						</ul>
 					</nav>
 				</div>
-				<div class="col-auto d-none d-lg-block">
+				<div class="col-auto d-none d-lg-block ms-auto set-col">
 					<div class="top-nav__user-wrap"><a href="#">
 							<svg class="icon icon-user-desktop ">
 								<use xlink:href="img/svg/sprite.svg#user-desktop"></use>
 							</svg></a>
+					</div>
+					<div class="top-nav__settings d-none">
+						<a class="top-nav__item-set" href="#">
+							<svg class="icon icon-settings ">
+								<use xlink:href="img/svg/sprite.svg#settings"></use>
+							</svg>Настройки
+						</a>
+						<a class="top-nav__item-set" href="#">
+							<svg class="icon icon-exit ">
+								<use xlink:href="img/svg/sprite.svg#exit"></use>
+							</svg>Выход
+						</a>
 					</div>
 				</div>
 			</div>

@@ -44,3 +44,8 @@ mixin parts(elem)
 	script.
 		addBlock(`#{elem}`)
 	div(id=`${elem}Wrap`)
+
+mixin cookie()
+	+b.cookie
+		p Мы используем файлы cookie для вашего удобства пользования сайтом и повышения качества рекомендаций
+		.btn.btn-warning.fw-700.close Согласен

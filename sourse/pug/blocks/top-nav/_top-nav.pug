@@ -25,9 +25,18 @@ mixin top-nav()
 				+e.col-logo.col-auto.order-first.d-none.d-lg-block
 					+e.logo(href='/')
 						+img('img/svg/logo-dark.svg')
-				.col
+				.col.d-lg-none
+					+mnu-mob()
+				.col-8.d-none.d-lg-block
 					+mnu()
-				.col-auto.d-none.d-lg-block
+				.col-auto.d-none.d-lg-block.ms-auto.set-col
 					+e.user-wrap: a(href='#'): +icon('user-desktop')
+					+e.settings.d-none
+						+e.item-set(href='#')
+							+icon('settings')
+							| Настройки
+						+e.item-set(href='#')
+							+icon('exit')
+							| Выход
 
 	// end top-nav

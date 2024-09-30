@@ -1,0 +1,17 @@
+extends ../layout/main.pug
+
+include ../blocks/sAuth/_sAuth.pug
+
+block variables
+	- let  mainPage= 'main-page' 
+	- let  bg= null
+
+block title
+	- let  title= 'Восстановление пароля'
+	title= title
+block pagecontent
+	//- +mob-mnu()
+	
+
+	main
+		+sAuth2(title)
