@@ -56,12 +56,6 @@
     }
 	}
 
-  .form-wrap__input-title {
-    margin-bottom: rem(6);
-    padding-left: rem(8);
-    display: inline-block;
-    font-size: 14px;
-  }
   button {
     margin-bottom: rem(8);
     margin-top: rem(10);
@@ -82,25 +76,9 @@
     position: relative;
   }
 
-  .btn-toggle-type-input--js {
-    position: absolute;
-    bottom: 8px;
-    right: 8px;
-
-    cursor: pointer;
-  }
 
   .form-wrap__input-title {
-    position: relative;
-
-    &::before {
-      content: '*';
-      position: absolute;
-      top: calc(100% + 5px);
-      left: -10px;
-      font-size: rem(14);
-      z-index: 2;
-    }
+    // position: relative;
   }
   .form-wrap__input-wrap {
     margin-bottom: rem(6);
@@ -114,3 +92,19 @@
 	@include media-breakpoint-only(xl) {}
 	@include media-breakpoint-down(xl) {}
 } // end.sAuth
+
+
+.form-wrap__input-title {
+  margin-bottom: rem(6);
+  padding-left: rem(8);
+  display: inline-block;
+  font-size: 14px;
+}
+
+.btn-toggle-type-input--js {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+
+  cursor: pointer;
+}

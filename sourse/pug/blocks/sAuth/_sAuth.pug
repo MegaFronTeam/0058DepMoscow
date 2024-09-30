@@ -8,8 +8,8 @@ mixin sAuth(title)
 					+icon('hr')
 				.section-title.text-center: h3= title
 				+form-wrap
-					+input("Электронная почта",'email','Электронная почта')
-					+input("Пароль",'password','Пароль')
+					+input("Электронная почта",'email','Электронная почта')(required)
+					+input("Пароль",'password','Пароль')(required)
 						+b.btn-toggle-type-input--js
 							+icon("eye")
 					button.btn.btn-dark.mb-2(type="submit") Войти
@@ -26,7 +26,7 @@ mixin sAuth2(title)
 					+icon('hr')
 				.section-title.text-center: h3= title
 				+form-wrap
-					+input("Электронная почта",'email','Электронная почта')
+					+input("Электронная почта",'email','Электронная почта')(required)
 					button.btn.btn-dark.mb-2(type="submit") Отправить
 					.text-center: .small На указанный вами адрес электронной почты будет отправлена инструкция по восстановлению пароля
 	// end sAuth

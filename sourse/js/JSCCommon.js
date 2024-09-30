@@ -410,10 +410,17 @@ class JSCCommon {
 			});
 		});
 	}
+  
+	static setCustomScrollbar() {
+		$(".custom-scroll").mCustomScrollbar({
+			theme: "minimal-dark",
+			alwaysShowScrollbar: true,
+		});
+	}
 
 	static init() {
 		this.modalCall();
-		// this.tabsCostume('tabs');
+		this.tabsCostume('tabs');
 		this.mobileMenu();
 		this.inputMask();
 		// this.sendForm();
@@ -422,6 +429,7 @@ class JSCCommon {
 		this.disabledBtn();
 		this.customSelect();
 		this.setScreen();
+		this.setCustomScrollbar();
 		// JSCCommon.toggleShow(".catalog-block__toggle--desctop", '.catalog-block__dropdown');
 		// JSCCommon.animateScroll();
 

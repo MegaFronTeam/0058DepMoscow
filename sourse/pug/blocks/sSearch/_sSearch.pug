@@ -1,0 +1,21 @@
+mixin sSearch(title)
+	// start sSearch
+	+b.SECTION.sSearch.section#sSearch&attributes(attributes)
+		.container
+			.wrap: .item
+				+b.section-title.text-center
+					h1=title
+				.text Нетворкинг — это расширение сети знакомств для решения профессиональных задач с их помощью.<br>Здесь вы можете узнать информацию об участниках программы, найти точки соприкосновения и более эффективно и быстро решать свои задачи.
+				+search
+	// end sSearch
+
+
+mixin sSearch2(title)
+	// start sSearch
+	+b.SECTION.sSearch.section#sSearch&attributes(attributes)
+		.container
+			.wrap: .item
+				+b.section-title.text-center
+					h1=title
+				+search
+	// end sSearch

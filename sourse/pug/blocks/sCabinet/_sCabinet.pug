@@ -1,0 +1,114 @@
+mixin sCabinet(data)
+	// start sCabinet
+	+b.SECTION.sCabinet.section#sCabinet&attributes(attributes)
+		.container: .inner-wrap
+			+b.section-title.text-center
+				h1 Мои настройки
+			+e.body: .tabs.tabs-slider--js.swiper
+				.tabs__caption.swiper-wrapper
+					.tabs__btn.swiper-slide.active Персональные данные
+					.tabs__btn.swiper-slide Информация
+					.tabs__btn.swiper-slide Контакты
+
+				.tabs__content#personal.active
+					+form-wrap
+						+e.form-caption.--photo
+							.title.small Фото профиля
+							.tinny-item-js
+								+icon('question')
+								.tinny-template.d-none Файлы форматов jpg, png до 2Мб.
+						+b.avatar-block-wrap
+							+b.LABEL.avatar-block.add-photo
+								input(type="file", name="")
+								+e.img-wrap
+									img(src="", alt="").img-bg.img-preview
+									+icon("user-desktop")
+							.text-center: +e.btn.btn.btn-outline-primary.small Загрузить фото
+						.text_large Личная информация
+						+input("ivanov@yandex.ru",'mail', 'Электронная почта')(disabled)
+						+input("Введите Вашу фамилию",'text', 'Фамилия')(required class="required")
+						+input("Введите Ваше имя",'text', 'Имя')(required)
+						+input("Введите Ваше отчество",'', 'Отчество')(required)
+						.data-picker-wrap
+							+input("дд.мм.гггг.",'text', 'Дата рождения','datettime')(required readonly autocomplete="off"	class="date-input").data-picker--js
+								+icon('calendar')
+						+input("Придумайте логин",'text', 'Логин')(required)
+						.text_large.text_large-second Смена пароля
+						+input("Введите старый пароль",'password', 'Старый пароль')
+							+b.btn-toggle-type-input--js
+								+icon("eye")
+						+input("Введите новый пароль",'password', 'Новый пароль').is-invalid
+							.small.is-invalid Пароль должны быть не короче 8 символов и содержать как минимум одну цифру и одну заглавную букву.
+						+input("Введите пароль ещё раз",'password', 'Повторите пароль')
+						button.btn.btn-dark.mb-2(type="submit") Сохранить
+				.tabs__content#info
+					+form-wrap
+						+input("Участник 2024",'text','Статус')(disabled)
+						+input("Введите Вашу должность",'text','Должность')(required)
+						+input("Введите Ваш стаж",'number','Стаж (лет)')(required)
+						.form-wrap__input-wrap.form-group
+							label.label-required: span.form-wrap__input-title Округ
+							.dropdown
+								.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Выберите округ
+								ul.dropdown-menu
+									.custom-scroll()
+										li: +regionLink('A', 'Академический')
+										li: +regionLink('', 'Алексеевский')
+										li: +regionLink('', 'Алтуфьевский')
+										li: +regionLink('', 'Арбат')
+										li: +regionLink('', 'Аэропорт')
+										li: +regionLink('Б', 'Бабушкинский')
+										li: +regionLink('', 'Басманный')
+										li: +regionLink('', 'Басманный')
+										li: +regionLink('', 'Басманный')
+										li: +regionLink('', 'Басманный')
+										li: +regionLink('B', 'Бабушкинский')
+										li: +regionLink('', 'Басманный')
+										li: +regionLink('', 'Басманный')
+										li: +regionLink('', 'Басманный')
+										li: +regionLink('', 'Басманный')
+						label.label-required: span.form-wrap__input-title Район
+						.dropdown
+							.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Выберите район
+							ul.dropdown-menu
+								.custom-scroll()
+									li: +regionLink('A', 'Академический')
+									li: +regionLink('', 'Алексеевский')
+									li: +regionLink('', 'Алтуфьевский')
+									li: +regionLink('', 'Арбат')
+									li: +regionLink('', 'Аэропорт')
+									li: +regionLink('Б', 'Бабушкинский')
+									li: +regionLink('', 'Басманный')
+									li: +regionLink('', 'Басманный')
+									li: +regionLink('', 'Басманный')
+									li: +regionLink('', 'Басманный')
+									li: +regionLink('B', 'Бабушкинский')
+									li: +regionLink('', 'Басманный')
+									li: +regionLink('', 'Басманный')
+									li: +regionLink('', 'Басманный')
+									li: +regionLink('', 'Басманный')
+						+input('Инвестиционные проекты','select', 'Экспертиза')(required multiple data-placeholder="Выберите экспертизу" class="сustom-select-js")
+						+input('Расскажите о себе','textarea', 'О себе')(required)
+						+input('Например, путешествия','textarea', 'Хобби')(required)
+						button.btn.btn-dark.mb-2(type="submit") Сохранить
+				.tabs__content#contacts
+					+form-wrap
+						+input("+7 (ХХХ)-ХХ-ХХ",'tel','Телефон')
+							+icon('phone')
+						+input("https://vk.com/your_name",'text','Вконтакте')
+							+icon('vk')
+						+input("https://ok.ru/profile/your_id",'text','Одноклассники')
+							+icon('odnoklassniki')
+						+input("@your_name",'text','Телеграм')
+							+icon('telegram')
+						+input("Телефон от WhatsApp",'text','WhatsApp')
+							+icon('whatsapp')
+						button.btn.btn-dark.mb-2(type="submit") Сохранить
+		.text-center.d-lg-none: .wrap.small(href='#')
+			+icon('exit')
+			| Выйти из профиля
+	// end sCabinet
+
+mixin regionLink(data, region)
+	+b.region-link(data-title=data)
+		a(href='#')= region

@@ -27,8 +27,9 @@ mixin addblock()
 
 mixin search()
 	+b.search-block
+		+e.title.small Поиск
 		form
-			input(type="text" placeholder="Поиск по номеру или названию запчасти" inputmode='search')
+			input(type="text" placeholder="ФИО, должность или организация" inputmode='search')
 			button 
 				+icon("search")
 

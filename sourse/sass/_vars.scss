@@ -118,7 +118,7 @@ $pink-900: shade-color($pink, 80%) !default;
 
 $red-100: tint-color($red, 80%) !default;
 $red-200: tint-color($red, 60%) !default;
-$red-300: tint-color($red, 40%) !default;
+$red-300: #D22630;
 $red-400: #FF0F43;
 $red-500: $red !default;
 $red-600: #98093F;
@@ -898,9 +898,9 @@ $input-padding-x-lg:                    $input-btn-padding-x-lg !default;
 $input-font-size-lg:                    $input-btn-font-size-lg !default;
 
 $input-bg:                              transparent;
-$input-disabled-color:                  null !default;
-$input-disabled-bg:                     var(--#{$prefix}secondary-bg) !default;
-$input-disabled-border-color:           null !default;
+$input-disabled-color:                  #BDBDBD;
+$input-disabled-bg:                     #F7F7F7;
+$input-disabled-border-color:           #BDBDBD;
 
 $input-color:                           var(--#{$prefix}body-color) !default;
 $input-border-color:                    #757B8A;
@@ -1100,7 +1100,7 @@ $form-feedback-icon-invalid:        url("data:image/svg+xml,<svg xmlns='http://w
 $form-valid-color:                  $form-feedback-valid-color !default;
 $form-valid-border-color:           $form-feedback-valid-color !default;
 $form-invalid-color:                $form-feedback-invalid-color !default;
-$form-invalid-border-color:         $form-feedback-invalid-color !default;
+$form-invalid-border-color:         #F97272;
 // scss-docs-end form-validation-colors
 
 // scss-docs-start form-validation-states

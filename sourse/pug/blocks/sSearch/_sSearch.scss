@@ -1,0 +1,52 @@
+// start .sSearch
+.sSearch {
+	// --sPT: #{rem(20)};
+	// --sPB: #{rem()};
+	--sTPB: #{rem(12)};
+  @include media-breakpoint-up(lg) {
+    --sPT: #{rem(24)};
+    --sTPB: #{rem(16)};
+  }
+	
+	&__row{
+		// --bs-gutter-x: #{rem()};
+		// --bs-gutter-y: #{rem()};
+	}
+	.section-title{
+		
+	}
+	.wrap {
+    padding: rem(16);
+    background: $white;
+    border-radius: 16px;
+    @include media-breakpoint-up(lg) {
+      padding: rem(24);
+      border-radius: 32px;
+      .text {
+        text-align: center;
+        font-size: rem(18);
+      }
+    }
+  }
+  .text {
+    margin-bottom: rem(24);
+    @include media-breakpoint-up(lg) {
+      margin-bottom: rem(18);
+    }
+  }
+
+  .item {
+    @include media-breakpoint-up(lg) {
+      max-width: rem(960);
+      margin: auto;
+    }
+  }
+
+	@include media-breakpoint-up(xl) {}
+	@include media-breakpoint-up(lg) {}
+	@include media-breakpoint-up(md) {}
+	@include media-breakpoint-up(sm) {}
+	@include media-breakpoint-between(md, xl) {}
+	@include media-breakpoint-only(xl) {}
+	@include media-breakpoint-down(xl) {}
+} // end.sSearch

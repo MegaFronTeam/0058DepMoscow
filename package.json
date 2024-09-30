@@ -65,9 +65,13 @@
 	},
 	"dependencies": {
 		"@fancyapps/ui": "^5.0.36",
+		"air-datepicker": "^3.5.3",
+		"hc-sticky": "^2.2.7",
 		"inputmask": "^5.0.9",
 		"jquery": "^3.7.1",
+		"malihu-custom-scrollbar-plugin": "^3.1.5",
 		"select2": "^4.1.0-rc.0",
-		"swiper": "^11.1.12"
+		"swiper": "^11.1.12",
+		"tippy.js": "^6.3.7"
 	}
 }
