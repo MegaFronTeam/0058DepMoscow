@@ -189,24 +189,45 @@ function eventHandler() {
   // Select the hidden file input element
   const inputFile = document.querySelector('.avatar-block-wrap input[type="file"]');
 
-  // Trigger the file input when the button is clicked
-  btnUploadFile.addEventListener('click', () => {
-    inputFile.click();
+  if(inputFile) {
+    btnUploadFile.addEventListener('click', () => {
+      inputFile.click();
+    });
+
+    inputFile.addEventListener('change', (event) => {
+      const inputElem = event.target; // The file input element
+      const avatarBlock = inputElem.closest('.avatar-block'); // Get the closest avatar block
+
+      if (inputElem.files && inputElem.files[0]) {
+        const imgPreview = avatarBlock.querySelector('.img-preview'); // Get the image preview element
+        const file = inputElem.files[0];
+
+        // Set the src of the image preview to the file's object URL
+        imgPreview.src = URL.createObjectURL(file);
+        imgPreview.classList.add("active"); // Add active class to show the image
+      }
+    });
+  }
+
+  //comments
+  let showCommentBtns = document.querySelectorAll(".comment-btn-js");
+  let hideCommentBtns = document.querySelectorAll(".hide-comment-js");
+  showCommentBtns.forEach((btn) => {
+    btn.addEventListener("click", function (event) {
+      event.preventDefault();
+      let comment = btn.nextElementSibling;
+      comment.classList.remove("visually-hidden");
+      btn.classList.add("visually-hidden");
+    });
   });
-
-  // Handle the file upload once the user selects a file
-  inputFile.addEventListener('change', (event) => {
-    const inputElem = event.target; // The file input element
-    const avatarBlock = inputElem.closest('.avatar-block'); // Get the closest avatar block
-
-    if (inputElem.files && inputElem.files[0]) {
-      const imgPreview = avatarBlock.querySelector('.img-preview'); // Get the image preview element
-      const file = inputElem.files[0];
-
-      // Set the src of the image preview to the file's object URL
-      imgPreview.src = URL.createObjectURL(file);
-      imgPreview.classList.add("active"); // Add active class to show the image
-    }
+  hideCommentBtns.forEach((btn) => {
+    btn.addEventListener("click", function (event) {
+      event.preventDefault();
+      let comment = btn.closest(".comment-body-js");
+      comment.classList.add("visually-hidden");
+      let showBtn = comment.previousElementSibling;
+      showBtn.classList.remove("visually-hidden");
+    });
   });
 
 }

@@ -1,13 +1,8 @@
 extends ../layout/main.pug
 
 include ../blocks/headerBlock/_headerBlock.pug
-include ../blocks/sForm/_sForm.pug
-include ../blocks/sContent/_sContent.pug
- 
-include ../blocks/sCabinet/_sCabinet.pug
-include ../blocks/sForm/_sForm.pug
 include ../blocks/sSearch/_sSearch.pug
-include ../blocks/sCatalog/_sCatalog.pug
+include ../blocks/sArticle/_sArticle.pug
 
 block variables
 	- let  mainPage= 'main-page' 
@@ -23,5 +18,6 @@ block pagecontent
 	+parts('header')
 	main
 		+sSearch2(title)
+		+sArticle
 		//- +cookie
 	+parts('footer')

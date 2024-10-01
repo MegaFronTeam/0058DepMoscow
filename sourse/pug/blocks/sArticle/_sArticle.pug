@@ -1,0 +1,42 @@
+mixin sArticle(data)
+	// start sArticle
+	+b.SECTION.sArticle.section#sArticle&attributes(attributes)
+		.container
+			.sFormInner__item
+				.sFormInner__item-header
+					+e.title Количество реализованных поле с текстом
+					.badge
+				+comments
+				+commentPerson(1, 'Абрамов Иван Александрович', 'Основатель', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+				+commentPerson(0, 'Абрамов Иван Александрович', 'Основатель', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+	// end sArticle
+
+
+mixin comments
+	+e.comment-btn.comment-btn-js.btn.BUTTON Оставить комментарий
+	+e.comment-body.comment-body-js.visually-hidden
+		.sFormInner__comments
+			.sFormInner__comments-title Показать комментарии (13)
+			.sFormInner__comment-input
+				+input('Написать комментарий','textarea').--comment
+				button.btn
+					+icon('send')
+			.sFormInner__comment.sFormInner__comment--invert
+				.sFormInner__comment-owner Викторовский Валентин Игоревич 18.06.2023 16:00
+				.sFormInner__comment-text Численность молодежи, зедействованной в программных мероприятиях по всем направлениям по всем направлениям
+			.sFormInner__comment
+				.sFormInner__comment-owner Вы 18.06.2023 16:00
+				.sFormInner__comment-text Численность молодежи, зедействованной в программных мероприятиях по всем направлениям Численность молодежи, зедействованной в программных мероприятиях
+			+e.comment-btn.hide-comment-js.btn.BUTTON Скрыть комментарии
+
+mixin commentPerson(img,title,job, job2, text )
+	+b.comment-person
+		if img
+			+e.img-wrap: +img(src=`img/comment-img-${img}.png`, alt="").img-bg
+		if !img
+			+e.img-wrap.d-flex: +icon('user-desktop')
+		+e.descr.small
+			+e.item.title.fw-700= title
+			+e.item.job= job
+			+e.item.job.job2= job2
+			.text= text
