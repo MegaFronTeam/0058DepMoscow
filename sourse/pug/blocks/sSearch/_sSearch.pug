@@ -14,8 +14,16 @@ mixin sSearch2(title)
 	// start sSearch
 	+b.SECTION.sSearch.section#sSearch&attributes(attributes)
 		.container
-			.wrap: .item
+			.wrap: .item.item_small
 				+b.section-title.text-center
 					h1=title
 				+search
+				.dropdown.d-lg-none
+					.dropdown-toggle.dropdown-toggle_gray(type="button" data-bs-toggle="dropdown" aria-expanded="false") Все материалы
+					+b.events-filter.dropdown-menu
+						+e.radio-wrap--text.radio-wrap
+							+in-c('radio','Все материалы','eventsM')(checked)
+							+in-c('radio','Обязательные','eventsM')
+							+in-c('radio','Факультативные','eventsM')
+							+in-c('radio','Рекомендации','eventsM')
 	// end sSearch

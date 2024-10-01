@@ -136,6 +136,25 @@ function eventHandler() {
 			});
 		});
 	}
+  /* dropdown */
+	const materials = document.querySelectorAll(
+		".sSearch label"
+	);
+
+	const materialsToggle = document.querySelector(
+		".sSearch .dropdown-toggle"
+	);
+
+	if (materials && materialsToggle) {
+		materials.forEach(link => {
+			link.addEventListener("click", function (event) {
+				// event.preventDefault();
+        console.dir(link.children[1]);
+
+				materialsToggle.textContent = link.children[1].textContent;
+			});
+		});
+	}
 
   const dataPickers = document.querySelectorAll('.data-picker-wrap');
 	for (const dataPickerEll of dataPickers) {
@@ -216,8 +235,10 @@ function eventHandler() {
     btn.addEventListener("click", function (event) {
       event.preventDefault();
       let comment = btn.nextElementSibling;
+      let control = comment.nextElementSibling
       comment.classList.remove("visually-hidden");
       btn.classList.add("visually-hidden");
+      control.classList.add("visually-hidden");
     });
   });
   hideCommentBtns.forEach((btn) => {
@@ -225,10 +246,27 @@ function eventHandler() {
       event.preventDefault();
       let comment = btn.closest(".comment-body-js");
       comment.classList.add("visually-hidden");
+
+      let control = comment.nextElementSibling
+      control.classList.remove("visually-hidden");
+
       let showBtn = comment.previousElementSibling;
       showBtn.classList.remove("visually-hidden");
     });
   });
+
+  // toggle active
+  const linkItems = document.querySelectorAll('.sArticle__sorting .link-item')
+  if (linkItems.length) {
+    linkItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        if (item !== e.target) {
+          linkItems.forEach(el => el.classList.remove('active'))
+          item.classList.add('active')
+        }
+      })
+    })
+  }
 
 }
 if (document.readyState !== "loading") {

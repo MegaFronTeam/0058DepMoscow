@@ -2,32 +2,133 @@ mixin sArticle(data)
 	// start sArticle
 	+b.SECTION.sArticle.section#sArticle&attributes(attributes)
 		.container
-			.sFormInner__item
-				.sFormInner__item-header
-					+e.title Количество реализованных поле с текстом
-					.badge
-				+comments
-				+commentPerson(1, 'Абрамов Иван Александрович', 'Основатель', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
-				+commentPerson(0, 'Абрамов Иван Александрович', 'Основатель', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+			+b.events-filter.d-none.d-lg-block
+				+e.filter-wrap(id="events-dropdown")
+					+e.radio-wrap--text.radio-wrap
+						+in-c('radio','Все материалы','events')(checked)
+						+in-c('radio','Обязательные','events')
+						+in-c('radio','Факультативные','events')
+						+in-c('radio','Рекомендации','events')
+			+e.sorting
+				.d-lg-none: a(href='#')
+					| Сначала новые
+					+icon('sort')
+				.d-none.d-lg-block
+					.link-item.active: a(href='#')
+						| Сначала новые
+					.link-item: a(href='#')
+						| Сначала старые
+				.form-check.form-check-reverse.form-switch
+					label.form-check-label(for="flexSwitchCheckDefault")
+						.d-none.d-lg-inline
+							+icon('like')
+							+icon('dislike')
+						| С оценкой
+					input.form-check-input(type="checkbox" checked role="switch" id="flexSwitchCheckDefault")
+			+e.list
+				+articleItem('Обязательные', 'badge_yellow', 'Запись вебинара с Ольгой Невской: «Исследования в транспортном комплексе Москвы: организация и проведение, основные этапы, сложности и ошибки».', 'Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.', 'Смотреть вебинар', 'report')
+				+articleItem('Факультативные', 'badge_indigo', 'Стандартная работа руководителя', 'Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах.', 'Скачать презентацию', 'education')
+				+articleItem2('Обязательные', 'badge_yellow', 'Масштабируемость в управлении. Переход от управления отдельными сотрудниками к управлению коллективом. Необходимые компетенции руководителей, коммуникационные и структурные изменения.', 'Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.', 'Скачать', 'report')
+				+articleItem('Рекомендации', 'badge_blue', 'Бережливый офис. Тайм менеджмент. Сокращение офисных потерь. Обсуждение открытых вопросов.', 'Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.', 'Скачать', 'user-favorite')
+				+articleItem('Обязательные', 'badge_yellow', 'Инструменты контроля «через ступень»/«несколько ступеней». Построение обратной связи «сквозь несколько уровней управления».', 'Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.', 'Скачать', 'report')
+			+pugin
 	// end sArticle
 
+mixin articleItem(badge, badgeColor, title, text, btn, icon)
+	+b.article-item
+		+e.icon-wrap(class=badgeColor): +icon(`${icon}`)
+		+e.header
+			.badge.small(class= badgeColor)= badge
+			+e.calendar.small
+				+icon('calendar')
+				| 10 сентября 2024
+		+e.body
+			+e.title= title
+			+e.text.small= text
+			+e.btn.btn.btn-outline-primary.small(href='#')= btn
+		+e.footer
+			+comments
+			+e.control.small
+				.wrap
+					+icon('like')
+					| 56
+				.wrap
+					+icon('dislike')
+					| 14
 
-mixin comments
-	+e.comment-btn.comment-btn-js.btn.BUTTON Оставить комментарий
+mixin articleItem2(badge, badgeColor, title, text, btn, icon)
+	+b.article-item
+		+e.icon-wrap(class=badgeColor): +icon(`${icon}`)
+		+e.header
+			.badge.small(class= badgeColor)= badge
+			+e.calendar.small
+				+icon('calendar')
+				| 10 сентября 2024
+		+e.body
+			+e.title= title
+			+e.text.small= text
+			+e.btn.btn.btn-outline-primary.small(href='#')= btn
+		+e.footer
+			+commentsEmpty
+			+e.control.small
+				.wrap.active
+					+icon('like')
+					| 14
+
+mixin commentsEmpty
+	+e.comment-btn.comment-btn-js.btn.BUTTON.small
+		| Оставить комментарий
 	+e.comment-body.comment-body-js.visually-hidden
 		.sFormInner__comments
-			.sFormInner__comments-title Показать комментарии (13)
+			.article-item__footer
+				+e.comment-btn.hide-comment-js.btn.BUTTON.small
+					| Оставить комментарий
+				+e.control.small
+					.wrap.active
+						+icon('like')
+						| 14
 			.sFormInner__comment-input
-				+input('Написать комментарий','textarea').--comment
-				button.btn
-					+icon('send')
-			.sFormInner__comment.sFormInner__comment--invert
-				.sFormInner__comment-owner Викторовский Валентин Игоревич 18.06.2023 16:00
-				.sFormInner__comment-text Численность молодежи, зедействованной в программных мероприятиях по всем направлениям по всем направлениям
-			.sFormInner__comment
-				.sFormInner__comment-owner Вы 18.06.2023 16:00
-				.sFormInner__comment-text Численность молодежи, зедействованной в программных мероприятиях по всем направлениям Численность молодежи, зедействованной в программных мероприятиях
-			+e.comment-btn.hide-comment-js.btn.BUTTON Скрыть комментарии
+				.d-lg-none: +input('Комментарий','textarea').--comment
+					button.btn.btn-primary
+						+icon('send')
+				.wrapper
+				.d-none.d-lg-block: +input('Комментарий','textarea').--comment
+					button.btn.btn-primary
+						+icon('send')
+
+mixin comments
+	+e.comment-btn.comment-btn-js.btn.BUTTON.small
+		| Показать комментарии (13)
+		+icon('arrow-bottom')
+	+e.comment-body.comment-body-js.visually-hidden
+		.sFormInner__comments
+			.article-item__footer
+				+e.comment-btn.hide-comment-js.btn.BUTTON.small
+					| Скрыть комментарии (13)
+					+icon('arrow-top')
+				+e.control.small
+					.wrap
+						+icon('like')
+						| 56
+					.wrap
+						+icon('dislike')
+						| 14
+			.sFormInner__comment-input
+				.d-lg-none: +input('Комментарий','textarea').--comment
+					button.btn.btn-primary
+						+icon('send')
+				.wrapper
+					+commentPerson(1, 'Абрамов Иван Александрович', 'Основатель', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+					+commentPerson(2, 'Володин Сергей Николаевич', 'Заместитель генерального директора', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+					+commentPerson(3, 'Летунова Александра Петровна', 'Директор по развитию', 'ОИВ', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+					+commentPerson(4, 'Вернигорова Валентина Анатольевна', 'Заместитель генерального директора', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+					+commentPerson(0, 'Вишневский Александр Александрович', 'Заместитель генерального директора', 'Группа компаний «НПХ-инвест»', 'Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!')
+				.text-center: +e.show-more.small.btn.btn-link(href='#')
+					| Показать еще
+					+icon('arrow-bottom')
+				.d-none.d-lg-block: +input('Комментарий','textarea').--comment
+					button.btn.btn-primary
+						+icon('send')
 
 mixin commentPerson(img,title,job, job2, text )
 	+b.comment-person

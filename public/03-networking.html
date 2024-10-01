@@ -61,69 +61,784 @@
 				<!-- start sArticle-->
 				<section class="sArticle section" id="sArticle">
 					<div class="container">
-						<div class="sFormInner__item">
-							<div class="sFormInner__item-header">
-								<div class="sArticle__title">Количество реализованных поле с текстом
-								</div>
-								<div class="badge"></div>
-							</div>
-							<button class="sArticle__comment-btn comment-btn-js btn">Оставить комментарий
-							</button>
-							<div class="sArticle__comment-body comment-body-js visually-hidden">
-								<div class="sFormInner__comments">
-									<div class="sFormInner__comments-title">Показать комментарии (13)</div>
-									<div class="sFormInner__comment-input">
-										<div class="sArticle__input-wrap form-group"><textarea class="sArticle__input form-control" name="textarea" placeholder="Написать комментарий"></textarea>
-										</div>
-										<!-- +e.input-wrap-->
-										<button class="btn">
-											<svg class="icon icon-send ">
-												<use xlink:href="img/svg/sprite.svg#send"></use>
-											</svg>
-										</button>
-									</div>
-									<div class="sFormInner__comment sFormInner__comment--invert">
-										<div class="sFormInner__comment-owner">Викторовский Валентин Игоревич 18.06.2023 16:00</div>
-										<div class="sFormInner__comment-text">Численность молодежи, зедействованной в программных мероприятиях по всем направлениям по всем направлениям</div>
-									</div>
-									<div class="sFormInner__comment">
-										<div class="sFormInner__comment-owner">Вы 18.06.2023 16:00</div>
-										<div class="sFormInner__comment-text">Численность молодежи, зедействованной в программных мероприятиях по всем направлениям Численность молодежи, зедействованной в программных мероприятиях</div>
-									</div>
-									<button class="sArticle__comment-btn hide-comment-js btn">Скрыть комментарии
-									</button>
-								</div>
-							</div>
-							<div class="comment-person">
-								<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-1.png" alt="" loading="lazy"/>
-								</div>
-								<div class="comment-person__descr small">
-									<div class="comment-person__item title fw-700">Абрамов Иван Александрович
-									</div>
-									<div class="comment-person__item job">Основатель
-									</div>
-									<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
-									</div>
-									<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
-								</div>
-							</div>
-							<div class="comment-person">
-								<div class="comment-person__img-wrap d-flex">
-									<svg class="icon icon-user-desktop ">
-										<use xlink:href="img/svg/sprite.svg#user-desktop"></use>
-									</svg>
-								</div>
-								<div class="comment-person__descr small">
-									<div class="comment-person__item title fw-700">Абрамов Иван Александрович
-									</div>
-									<div class="comment-person__item job">Основатель
-									</div>
-									<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
-									</div>
-									<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+						<div class="events-filter d-none d-lg-block">
+							<div class="events-filter__filter-wrap" id="events-dropdown">
+								<div class="events-filter__radio-wrap events-filter__radio-wrap--text radio-wrap">
+									<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="events" type="radio" checked="checked"/><span class="custom-input__text form-check-label">Все материалы</span>
+									</label>
+									<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="events" type="radio"/><span class="custom-input__text form-check-label">Обязательные</span>
+									</label>
+									<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="events" type="radio"/><span class="custom-input__text form-check-label">Факультативные</span>
+									</label>
+									<label class="custom-input form-check"><input class="custom-input__input form-check-input" name="events" type="radio"/><span class="custom-input__text form-check-label">Рекомендации</span>
+									</label>
 								</div>
 							</div>
 						</div>
+						<div class="sArticle__sorting">
+							<div class="d-lg-none"><a href="#">Сначала новые
+									<svg class="icon icon-sort ">
+										<use xlink:href="img/svg/sprite.svg#sort"></use>
+									</svg></a></div>
+							<div class="d-none d-lg-block">
+								<div class="link-item active"><a href="#">Сначала новые</a></div>
+								<div class="link-item"><a href="#">Сначала старые</a></div>
+							</div>
+							<div class="form-check form-check-reverse form-switch">
+								<label class="form-check-label" for="flexSwitchCheckDefault">
+									<div class="d-none d-lg-inline">
+										<svg class="icon icon-like ">
+											<use xlink:href="img/svg/sprite.svg#like"></use>
+										</svg>
+										<svg class="icon icon-dislike ">
+											<use xlink:href="img/svg/sprite.svg#dislike"></use>
+										</svg>
+									</div>С оценкой
+								</label>
+								<input class="form-check-input" type="checkbox" checked="checked" role="switch" id="flexSwitchCheckDefault"/>
+							</div>
+						</div>
+						<div class="sArticle__list">
+							<div class="article-item">
+								<div class="article-item__icon-wrap badge_yellow">
+									<svg class="icon icon-report ">
+										<use xlink:href="img/svg/sprite.svg#report"></use>
+									</svg>
+								</div>
+								<div class="article-item__header">
+									<div class="badge small badge_yellow">Обязательные</div>
+									<div class="article-item__calendar small">
+										<svg class="icon icon-calendar ">
+											<use xlink:href="img/svg/sprite.svg#calendar"></use>
+										</svg>10 сентября 2024
+									</div>
+								</div>
+								<div class="article-item__body">
+									<div class="article-item__title">Запись вебинара с Ольгой Невской: «Исследования в транспортном комплексе Москвы: организация и проведение, основные этапы, сложности и ошибки».
+									</div>
+									<div class="article-item__text small">Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.
+									</div>
+									<a class="article-item__btn btn btn-outline-primary small" href="#">Смотреть вебинар
+									</a>
+								</div>
+								<div class="article-item__footer">
+									<button class="article-item__comment-btn comment-btn-js btn small">Показать комментарии (13)
+										<svg class="icon icon-arrow-bottom ">
+											<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+										</svg>
+									</button>
+									<div class="article-item__comment-body comment-body-js visually-hidden">
+										<div class="sFormInner__comments">
+											<div class="article-item__footer">
+												<button class="article-item__comment-btn hide-comment-js btn small">Скрыть комментарии (13)
+													<svg class="icon icon-arrow-top ">
+														<use xlink:href="img/svg/sprite.svg#arrow-top"></use>
+													</svg>
+												</button>
+												<div class="article-item__control small">
+													<div class="wrap">
+														<svg class="icon icon-like ">
+															<use xlink:href="img/svg/sprite.svg#like"></use>
+														</svg>56
+													</div>
+													<div class="wrap">
+														<svg class="icon icon-dislike ">
+															<use xlink:href="img/svg/sprite.svg#dislike"></use>
+														</svg>14
+													</div>
+												</div>
+											</div>
+											<div class="sFormInner__comment-input">
+												<div class="d-lg-none">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+												<div class="wrapper">
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-1.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Абрамов Иван Александрович
+															</div>
+															<div class="comment-person__item job">Основатель
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-2.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Володин Сергей Николаевич
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-3.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Летунова Александра Петровна
+															</div>
+															<div class="comment-person__item job">Директор по развитию
+															</div>
+															<div class="comment-person__item job job2">ОИВ
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-4.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вернигорова Валентина Анатольевна
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap d-flex">
+															<svg class="icon icon-user-desktop ">
+																<use xlink:href="img/svg/sprite.svg#user-desktop"></use>
+															</svg>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вишневский Александр Александрович
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+												</div>
+												<div class="text-center">
+													<a class="article-item__show-more small btn btn-link" href="#">Показать еще
+														<svg class="icon icon-arrow-bottom ">
+															<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+														</svg>
+													</a>
+												</div>
+												<div class="d-none d-lg-block">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="article-item__control small">
+										<div class="wrap">
+											<svg class="icon icon-like ">
+												<use xlink:href="img/svg/sprite.svg#like"></use>
+											</svg>56
+										</div>
+										<div class="wrap">
+											<svg class="icon icon-dislike ">
+												<use xlink:href="img/svg/sprite.svg#dislike"></use>
+											</svg>14
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="article-item">
+								<div class="article-item__icon-wrap badge_indigo">
+									<svg class="icon icon-education ">
+										<use xlink:href="img/svg/sprite.svg#education"></use>
+									</svg>
+								</div>
+								<div class="article-item__header">
+									<div class="badge small badge_indigo">Факультативные</div>
+									<div class="article-item__calendar small">
+										<svg class="icon icon-calendar ">
+											<use xlink:href="img/svg/sprite.svg#calendar"></use>
+										</svg>10 сентября 2024
+									</div>
+								</div>
+								<div class="article-item__body">
+									<div class="article-item__title">Стандартная работа руководителя
+									</div>
+									<div class="article-item__text small">Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах.
+									</div>
+									<a class="article-item__btn btn btn-outline-primary small" href="#">Скачать презентацию
+									</a>
+								</div>
+								<div class="article-item__footer">
+									<button class="article-item__comment-btn comment-btn-js btn small">Показать комментарии (13)
+										<svg class="icon icon-arrow-bottom ">
+											<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+										</svg>
+									</button>
+									<div class="article-item__comment-body comment-body-js visually-hidden">
+										<div class="sFormInner__comments">
+											<div class="article-item__footer">
+												<button class="article-item__comment-btn hide-comment-js btn small">Скрыть комментарии (13)
+													<svg class="icon icon-arrow-top ">
+														<use xlink:href="img/svg/sprite.svg#arrow-top"></use>
+													</svg>
+												</button>
+												<div class="article-item__control small">
+													<div class="wrap">
+														<svg class="icon icon-like ">
+															<use xlink:href="img/svg/sprite.svg#like"></use>
+														</svg>56
+													</div>
+													<div class="wrap">
+														<svg class="icon icon-dislike ">
+															<use xlink:href="img/svg/sprite.svg#dislike"></use>
+														</svg>14
+													</div>
+												</div>
+											</div>
+											<div class="sFormInner__comment-input">
+												<div class="d-lg-none">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+												<div class="wrapper">
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-1.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Абрамов Иван Александрович
+															</div>
+															<div class="comment-person__item job">Основатель
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-2.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Володин Сергей Николаевич
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-3.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Летунова Александра Петровна
+															</div>
+															<div class="comment-person__item job">Директор по развитию
+															</div>
+															<div class="comment-person__item job job2">ОИВ
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-4.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вернигорова Валентина Анатольевна
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap d-flex">
+															<svg class="icon icon-user-desktop ">
+																<use xlink:href="img/svg/sprite.svg#user-desktop"></use>
+															</svg>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вишневский Александр Александрович
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+												</div>
+												<div class="text-center">
+													<a class="article-item__show-more small btn btn-link" href="#">Показать еще
+														<svg class="icon icon-arrow-bottom ">
+															<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+														</svg>
+													</a>
+												</div>
+												<div class="d-none d-lg-block">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="article-item__control small">
+										<div class="wrap">
+											<svg class="icon icon-like ">
+												<use xlink:href="img/svg/sprite.svg#like"></use>
+											</svg>56
+										</div>
+										<div class="wrap">
+											<svg class="icon icon-dislike ">
+												<use xlink:href="img/svg/sprite.svg#dislike"></use>
+											</svg>14
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="article-item">
+								<div class="article-item__icon-wrap badge_yellow">
+									<svg class="icon icon-report ">
+										<use xlink:href="img/svg/sprite.svg#report"></use>
+									</svg>
+								</div>
+								<div class="article-item__header">
+									<div class="badge small badge_yellow">Обязательные</div>
+									<div class="article-item__calendar small">
+										<svg class="icon icon-calendar ">
+											<use xlink:href="img/svg/sprite.svg#calendar"></use>
+										</svg>10 сентября 2024
+									</div>
+								</div>
+								<div class="article-item__body">
+									<div class="article-item__title">Масштабируемость в управлении. Переход от управления отдельными сотрудниками к управлению коллективом. Необходимые компетенции руководителей, коммуникационные и структурные изменения.
+									</div>
+									<div class="article-item__text small">Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.
+									</div>
+									<a class="article-item__btn btn btn-outline-primary small" href="#">Скачать
+									</a>
+								</div>
+								<div class="article-item__footer">
+									<button class="article-item__comment-btn comment-btn-js btn small">Оставить комментарий
+									</button>
+									<div class="article-item__comment-body comment-body-js visually-hidden">
+										<div class="sFormInner__comments">
+											<div class="article-item__footer">
+												<button class="article-item__comment-btn hide-comment-js btn small">Оставить комментарий
+												</button>
+												<div class="article-item__control small">
+													<div class="wrap active">
+														<svg class="icon icon-like ">
+															<use xlink:href="img/svg/sprite.svg#like"></use>
+														</svg>14
+													</div>
+												</div>
+											</div>
+											<div class="sFormInner__comment-input">
+												<div class="d-lg-none">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+												<div class="wrapper"></div>
+												<div class="d-none d-lg-block">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="article-item__control small">
+										<div class="wrap active">
+											<svg class="icon icon-like ">
+												<use xlink:href="img/svg/sprite.svg#like"></use>
+											</svg>14
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="article-item">
+								<div class="article-item__icon-wrap badge_blue">
+									<svg class="icon icon-user-favorite ">
+										<use xlink:href="img/svg/sprite.svg#user-favorite"></use>
+									</svg>
+								</div>
+								<div class="article-item__header">
+									<div class="badge small badge_blue">Рекомендации</div>
+									<div class="article-item__calendar small">
+										<svg class="icon icon-calendar ">
+											<use xlink:href="img/svg/sprite.svg#calendar"></use>
+										</svg>10 сентября 2024
+									</div>
+								</div>
+								<div class="article-item__body">
+									<div class="article-item__title">Бережливый офис. Тайм менеджмент. Сокращение офисных потерь. Обсуждение открытых вопросов.
+									</div>
+									<div class="article-item__text small">Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.
+									</div>
+									<a class="article-item__btn btn btn-outline-primary small" href="#">Скачать
+									</a>
+								</div>
+								<div class="article-item__footer">
+									<button class="article-item__comment-btn comment-btn-js btn small">Показать комментарии (13)
+										<svg class="icon icon-arrow-bottom ">
+											<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+										</svg>
+									</button>
+									<div class="article-item__comment-body comment-body-js visually-hidden">
+										<div class="sFormInner__comments">
+											<div class="article-item__footer">
+												<button class="article-item__comment-btn hide-comment-js btn small">Скрыть комментарии (13)
+													<svg class="icon icon-arrow-top ">
+														<use xlink:href="img/svg/sprite.svg#arrow-top"></use>
+													</svg>
+												</button>
+												<div class="article-item__control small">
+													<div class="wrap">
+														<svg class="icon icon-like ">
+															<use xlink:href="img/svg/sprite.svg#like"></use>
+														</svg>56
+													</div>
+													<div class="wrap">
+														<svg class="icon icon-dislike ">
+															<use xlink:href="img/svg/sprite.svg#dislike"></use>
+														</svg>14
+													</div>
+												</div>
+											</div>
+											<div class="sFormInner__comment-input">
+												<div class="d-lg-none">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+												<div class="wrapper">
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-1.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Абрамов Иван Александрович
+															</div>
+															<div class="comment-person__item job">Основатель
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-2.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Володин Сергей Николаевич
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-3.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Летунова Александра Петровна
+															</div>
+															<div class="comment-person__item job">Директор по развитию
+															</div>
+															<div class="comment-person__item job job2">ОИВ
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-4.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вернигорова Валентина Анатольевна
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap d-flex">
+															<svg class="icon icon-user-desktop ">
+																<use xlink:href="img/svg/sprite.svg#user-desktop"></use>
+															</svg>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вишневский Александр Александрович
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+												</div>
+												<div class="text-center">
+													<a class="article-item__show-more small btn btn-link" href="#">Показать еще
+														<svg class="icon icon-arrow-bottom ">
+															<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+														</svg>
+													</a>
+												</div>
+												<div class="d-none d-lg-block">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="article-item__control small">
+										<div class="wrap">
+											<svg class="icon icon-like ">
+												<use xlink:href="img/svg/sprite.svg#like"></use>
+											</svg>56
+										</div>
+										<div class="wrap">
+											<svg class="icon icon-dislike ">
+												<use xlink:href="img/svg/sprite.svg#dislike"></use>
+											</svg>14
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="article-item">
+								<div class="article-item__icon-wrap badge_yellow">
+									<svg class="icon icon-report ">
+										<use xlink:href="img/svg/sprite.svg#report"></use>
+									</svg>
+								</div>
+								<div class="article-item__header">
+									<div class="badge small badge_yellow">Обязательные</div>
+									<div class="article-item__calendar small">
+										<svg class="icon icon-calendar ">
+											<use xlink:href="img/svg/sprite.svg#calendar"></use>
+										</svg>10 сентября 2024
+									</div>
+								</div>
+								<div class="article-item__body">
+									<div class="article-item__title">Инструменты контроля «через ступень»/«несколько ступеней». Построение обратной связи «сквозь несколько уровней управления».
+									</div>
+									<div class="article-item__text small">Вебинар посвящён изучению организации дорожного движения в столице России и поиску оптимальных решений для устранения пробок на дорогах. Участники мероприятия рассмотрят Государственную программу развития транспортной системы Москвы на 2024–2026 годы, изучат мнения экспертов и жителей города по этому вопросу, а также предложат дополнительные меры для улучшения транспортной ситуации в городе.
+									</div>
+									<a class="article-item__btn btn btn-outline-primary small" href="#">Скачать
+									</a>
+								</div>
+								<div class="article-item__footer">
+									<button class="article-item__comment-btn comment-btn-js btn small">Показать комментарии (13)
+										<svg class="icon icon-arrow-bottom ">
+											<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+										</svg>
+									</button>
+									<div class="article-item__comment-body comment-body-js visually-hidden">
+										<div class="sFormInner__comments">
+											<div class="article-item__footer">
+												<button class="article-item__comment-btn hide-comment-js btn small">Скрыть комментарии (13)
+													<svg class="icon icon-arrow-top ">
+														<use xlink:href="img/svg/sprite.svg#arrow-top"></use>
+													</svg>
+												</button>
+												<div class="article-item__control small">
+													<div class="wrap">
+														<svg class="icon icon-like ">
+															<use xlink:href="img/svg/sprite.svg#like"></use>
+														</svg>56
+													</div>
+													<div class="wrap">
+														<svg class="icon icon-dislike ">
+															<use xlink:href="img/svg/sprite.svg#dislike"></use>
+														</svg>14
+													</div>
+												</div>
+											</div>
+											<div class="sFormInner__comment-input">
+												<div class="d-lg-none">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+												<div class="wrapper">
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-1.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Абрамов Иван Александрович
+															</div>
+															<div class="comment-person__item job">Основатель
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-2.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Володин Сергей Николаевич
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-3.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Летунова Александра Петровна
+															</div>
+															<div class="comment-person__item job">Директор по развитию
+															</div>
+															<div class="comment-person__item job job2">ОИВ
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap"><img class="img-bg" src="img/comment-img-4.png" alt="" loading="lazy"/>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вернигорова Валентина Анатольевна
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+													<div class="comment-person">
+														<div class="comment-person__img-wrap d-flex">
+															<svg class="icon icon-user-desktop ">
+																<use xlink:href="img/svg/sprite.svg#user-desktop"></use>
+															</svg>
+														</div>
+														<div class="comment-person__descr small">
+															<div class="comment-person__item title fw-700">Вишневский Александр Александрович
+															</div>
+															<div class="comment-person__item job">Заместитель генерального директора
+															</div>
+															<div class="comment-person__item job job2">Группа компаний «НПХ-инвест»
+															</div>
+															<div class="text">Мне понравился данный вебинар. Было интересно изучить мнения экспертов и жителей города по этому вопросу, а также предложения дополнительных мер для улучшения транспортной ситуации в городе!</div>
+														</div>
+													</div>
+												</div>
+												<div class="text-center">
+													<a class="article-item__show-more small btn btn-link" href="#">Показать еще
+														<svg class="icon icon-arrow-bottom ">
+															<use xlink:href="img/svg/sprite.svg#arrow-bottom"></use>
+														</svg>
+													</a>
+												</div>
+												<div class="d-none d-lg-block">
+													<div class="article-item__input-wrap form-group"><textarea class="article-item__input form-control" name="textarea" placeholder="Комментарий"></textarea>
+														<button class="btn btn-primary">
+															<svg class="icon icon-send ">
+																<use xlink:href="img/svg/sprite.svg#send"></use>
+															</svg>
+														</button>
+													</div>
+													<!-- +e.input-wrap-->
+												</div>
+											</div>
+										</div>
+									</div>
+									<div class="article-item__control small">
+										<div class="wrap">
+											<svg class="icon icon-like ">
+												<use xlink:href="img/svg/sprite.svg#like"></use>
+											</svg>56
+										</div>
+										<div class="wrap">
+											<svg class="icon icon-dislike ">
+												<use xlink:href="img/svg/sprite.svg#dislike"></use>
+											</svg>14
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<nav class="pagination-nav">
+							<ul class="pagination">
+								<li class="page-item disabled"><a class="page-link page-link--prev" href="#"></a></li>
+								<li class="page-item active"><a class="page-link" href="#">1</a></li>
+								<li class="page-item"><a class="page-link" href="#">2</a></li>
+								<li class="page-item"><a class="page-link" href="#">3</a></li>
+								<li class="page-item"><a class="page-link" href="#">4</a></li>
+								<li class="page-item"><a class="page-link" href="#">5</a></li>
+								<li class="page-item"><a class="page-link page-link--next" href="#"></a></li>
+							</ul>
+						</nav>
 					</div>
 				</section>
 				<!-- end sArticle-->

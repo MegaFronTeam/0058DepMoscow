@@ -39,7 +39,31 @@
     @include media-breakpoint-up(lg) {
       max-width: rem(960);
       margin: auto;
+      &_small {
+        max-width: rem(808);
+      }
     }
+  }
+  .search-block {
+    margin-bottom: rem(8);
+  }
+  .dropdown-toggle {
+    margin-bottom: 0;
+    .custom-input {
+      margin-bottom: 0 !important;
+    }
+  }
+  .dropdown {
+    .custom-input {
+      margin-bottom: 0 !important;
+    }
+    .custom-input__input {
+      border-color: transparent  !important;
+    }
+  }
+
+  .dropdown-menu {
+    --bs-dropdown-padding-y: 0;
   }
 
 	@include media-breakpoint-up(xl) {}
