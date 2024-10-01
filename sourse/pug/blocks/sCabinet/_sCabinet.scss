@@ -182,6 +182,9 @@
     @include media-breakpoint-down(lg) {
     }
   }
+  .small.is-invalid {
+    order: -1 !important;
+  }
 
 	@include media-breakpoint-up(xl) {}
 	@include media-breakpoint-up(lg) {}
