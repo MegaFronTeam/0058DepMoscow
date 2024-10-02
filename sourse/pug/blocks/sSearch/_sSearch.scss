@@ -58,6 +58,17 @@
     --bs-dropdown-padding-y: 0;
   }
 
+  .dropdown-menu.show {
+    &.events-filter {
+      @include media-breakpoint-down(lg) {
+        // position: static !important;
+        // transform: translateY(8px) !important;
+        border-radius: rem(16);
+        margin-top: rem(8) !important;
+      }
+    }
+  }
+
   .filter-toggle {
     display: flex;
     justify-content: space-between;
