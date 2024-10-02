@@ -4,7 +4,7 @@
 	// --sPB: #{rem()};
 	// --sTPB: #{rem()};
     @include media-breakpoint-up(lg) {
-      --sPT: #{rem(24)};
+      --sPT: #{rem(96)};
     }
 	&__row{
 		// --bs-gutter-x: #{rem()};

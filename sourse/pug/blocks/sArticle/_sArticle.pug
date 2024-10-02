@@ -34,6 +34,51 @@ mixin sArticle(data)
 			+pugin
 	// end sArticle
 
+mixin sArticle2(data)
+	// start sArticle
+	+b.SECTION.sArticle.section#sArticle&attributes(attributes)
+		.container
+			.events-f.d-none.d-lg-block
+				+filterMobile
+			+e.filters-tag.small
+				+e.item-sort.item-sort-main(href='#')
+					| Сбросить все
+					+icon('cross')
+				+e.item-sort(href='#')
+					| GR
+					+icon('cross')
+				+e.item-sort(href='#')
+					| Инвестиционные проекты
+					+icon('cross')
+				+e.item-sort(href='#')
+					| Коммуникация
+					+icon('cross')
+				+e.item-sort(href='#')
+					| Работа с людьми
+					+icon('cross')
+				+e.item-sort(href='#')
+					| Стратегия
+					+icon('cross')
+				+e.item-sort(href='#')
+					| Автоматизация бизнес-процессов
+					+icon('cross')
+				+e.item-sort(href='#')
+					| Поддержка и развитие креативных индустрий
+					+icon('cross')
+			+e.list
+				+articleItem3(1, 'Абрамов Иван Александрович', 'Группа компаний «НПХ-инвест»', 'Основатель', true)
+				+articleItem3(3, 'Летунова Александра Петровна', 'Группа компаний «НПХ-инвест»', 'Директор по развитию', 0)
+				+articleItem3(2, 'Андрощук Виктор Владимирович', 'Группа компаний «ЭСК-РусГидро»', 'Заместитель генерального директора', 0)
+				+articleItem3(0, 'Вишневский Александр Александрович', 'Группа компаний «НПХ-инвест»', 'Заместитель генерального директора', 0)
+				+articleItem3(4, 'Вернигорова Валентина Анатольевна', 'Группа компаний «НПХ-инвест»', 'Основатель', true)
+				+articleItem3(6, 'Летунова Александра Петровна', 'Группа компаний «НПХ-инвест»', 'Директор по развитию', 0)
+				+articleItem3(2, 'Андрощук Виктор Владимирович', 'Группа компаний «ЭСК-РусГидро»', 'Заместитель генерального директора', 0)
+				+articleItem3(7, 'Летунова Александра Петровна', 'Группа компаний «НПХ-инвест»', 'Директор по развитию', 0)
+				+articleItem3(8, 'Летунова Александра Петровна', 'Группа компаний «НПХ-инвест»', 'Директор по развитию', 0)
+				+articleItem3(9, 'Летунова Александра Петровна', 'Группа компаний «НПХ-инвест»', 'Директор по развитию', 0)
+			+pugin
+	// end sArticle
+
 mixin articleItem(badge, badgeColor, title, text, btn, icon)
 	+b.article-item
 		+e.icon-wrap(class=badgeColor): +icon(`${icon}`)
@@ -141,3 +186,73 @@ mixin commentPerson(img,title,job, job2, text )
 			+e.item.job= job
 			+e.item.job.job2= job2
 			.text= text
+
+mixin commentPerson2(img,title,job, job2)
+	+b.comment-person2
+		if img
+			+e.img-wrap: +img(src=`img/comment-img-${img}.png`, alt="").img-bg
+		if !img
+			+e.img-wrap.d-flex: +icon('user-desktop')
+		+e.descr.small
+			+e.item.text_large.title.fw-700= title
+			+e.item.job= job
+			+e.item.job.job2= job2
+
+mixin articleItem3(img, title,job, job2, info)
+	+b.article-item--horiz
+		+commentPerson2(img, title,job, job2)
+		+e.footer.article-item__footer2
+			+e.comment-btn.comment-btn-js.btn.BUTTON.small
+				| Подробнее
+				+icon('arrow-bottom')
+			+e.comment-body.comment-body-js.visually-hidden
+				.sFormInner__comments
+					+contacts(info)
+					.article-item__footer.article-item__footer2
+						+e.comment-btn.hide-comment-js.btn.BUTTON.small
+							| Скрыть
+							+icon('arrow-top')
+
+mixin contacts(info)
+	+b.contacts-item
+		+e.title.fw-700 Контакты
+		+e.item.UL.small
+			li: a(href='mailto:androschuk_rushydro@yandex.ru')
+				+icon('mail')
+				| androschuk_rushydro@yandex.ru
+			li: a(href="tel:+79371567786")
+				+icon('phone-empty')
+				| +7 937 156 77 86
+			li: a(href="#")
+				+icon('vk')
+				| @parivan
+			li: a(href="#")
+				+icon('telegram')
+				| @parivan
+		+e.item.item_gray.small
+			+e.part
+				.title.fw-700 Округ
+				.text Центральный административный округ
+			+e.part
+				.title.fw-700 Район работы
+				.text Пресненский район
+			+e.part
+				.title.fw-700 Стаж работы
+				.text 15 лет
+			+e.part
+				.title.fw-700 Экспертиза
+				.badges
+					.badge GR
+					.badge Инвестиционные проекты
+					.badge Коммуникация
+					.badge Работа с людьми
+					.badge Стратегия
+					.badge Построение команды
+					.badge Автоматизация бизнес-процессов
+		if info
+			+e.item
+				.title-lg.fw-700 Информация о себе
+				.small Управление экономикой и финансами проектов <br> Публичные выступления (спикер конференций в числе которых TEDx и Skolkovo talks)<br> GR (2 года работал советником руководителя Администрации Главы Республики Башкортостан по вопросам развития предпринимательства и международным проектам)<br>Стратегия и инвестиции
+			+e.item.item_border-top
+				.title-lg.fw-700 Хобби
+				.small Ски-тур, горные лыжи, горные восхождения<br>Морские приключения<br> Наставничество для предпринимателей и обучение

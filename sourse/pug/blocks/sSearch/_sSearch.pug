@@ -7,12 +7,99 @@ mixin sSearch(title)
 					h1=title
 				.text Нетворкинг — это расширение сети знакомств для решения профессиональных задач с их помощью.<br>Здесь вы можете узнать информацию об участниках программы, найти точки соприкосновения и более эффективно и быстро решать свои задачи.
 				+search
+				.filter-toggle.d-lg-none
+					| Фильтр
+					+icon('settings')
+				.d-lg-none: +filterMobile
 	// end sSearch
+
+mixin filterMobile
+	+b.filter-mobile
+		+e.wrap
+			.d-lg-none: +icon('cross')
+			.d-lg-none: +e.title.text-center.fw-700 Фильтр
+			+e.items 
+				+e.item-wrap: +e.filter-wrap
+					+e.f-title Должности
+						+icon('arrow-bottom')
+					+e.f-wrap
+						.custom-scroll()
+							+in-c('checkbox','Основатель','job')(checked)
+							+in-c('checkbox','Директор по развитию','job')
+							+in-c('checkbox','Заместитель генерального директора','job')
+							+in-c('checkbox','Основатель','job')(checked)
+							+in-c('checkbox','Директор по развитию','job')
+							+in-c('checkbox','Заместитель генерального директора','job')
+							+in-c('checkbox','Основатель','job')
+							+in-c('checkbox','Директор по развитию','job')
+							+in-c('checkbox','Заместитель генерального директора','job')
+							+in-c('checkbox','Основатель','job')
+							+in-c('checkbox','Директор по развитию','job')
+							+in-c('checkbox','Заместитель генерального директора','job')
+				+e.item-wrap: +e.filter-wrap
+					+e.f-title Округ
+						+icon('arrow-bottom')
+					+e.f-wrap
+						.custom-scroll()
+							+regionLink('A', 'Академический')
+							+regionLink('', 'Алексеевский')
+							+regionLink('', 'Алтуфьевский')
+							+regionLink('', 'Арбат')
+							+regionLink('', 'Аэропорт')
+							+regionLink('Б', 'Бабушкинский')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('B', 'Бабушкинский')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+				+e.item-wrap: +e.filter-wrap
+					+e.f-title Район работы
+						+icon('arrow-bottom')
+					+e.f-wrap
+						.custom-scroll()
+							+regionLink('A', 'Академический')
+							+regionLink('', 'Алексеевский')
+							+regionLink('', 'Алтуфьевский')
+							+regionLink('', 'Арбат')
+							+regionLink('', 'Аэропорт')
+							+regionLink('Б', 'Бабушкинский')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('B', 'Бабушкинский')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+							+regionLink('', 'Басманный')
+				+e.item-wrap: +e.filter-wrap
+					+e.f-title Экспертиза
+						+icon('arrow-bottom')
+					+e.f-wrap
+						.custom-scroll()
+							+in-c('checkbox','Автоматизация бизнес-процессов','exp')(checked)
+							+in-c('checkbox','Коммуникация','exp')
+							+in-c('checkbox','Поддержка и развитие креативных индустрий','exp')
+							+in-c('checkbox','Инвестиционные проекты','exp')
+							+in-c('checkbox','Работа с людьми','exp')
+							+in-c('checkbox','Поддержка и развитие креативных индустрий','exp')
+							+in-c('checkbox','Инвестиционные проекты','exp')
+							+in-c('checkbox','Работа с людьми','exp')
+							+in-c('checkbox','Поддержка и развитие креативных индустрий','exp')
+							+in-c('checkbox','Инвестиционные проекты','exp')
+							+in-c('checkbox','Работа с людьми','exp')
+							+in-c('checkbox','Поддержка и развитие креативных индустрий','exp')
+							+in-c('checkbox','Инвестиционные проекты','exp')
+							+in-c('checkbox','Работа с людьми','exp')
 
 
 mixin sSearch2(title)
 	// start sSearch
-	+b.SECTION.sSearch.section#sSearch&attributes(attributes)
+	+b.SECTION.sSearch.sSearch-filter--js.section#sSearch&attributes(attributes)
 		.container
 			.wrap: .item.item_small
 				+b.section-title.text-center

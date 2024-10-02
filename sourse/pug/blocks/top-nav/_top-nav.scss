@@ -1,37 +1,33 @@
 .top-nav {
-	// --sPT: #{rem()};
-	// --sPB: #{rem()};
 
-
-	&__row{
-		// --bs-gutter-x: #{rem()};
-		// @include media-breakpoint-up(md) {
-			// --bs-gutter-y: var(--bs-gutter-x);
-      align-items: center;
-		// }
+	&__row {
+    align-items: center;
 	}
+
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 10;
   @include media-breakpoint-down(lg) {
-    position: fixed;
     bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
   }
+
   @include media-breakpoint-up(lg) {
     min-height: rem(72);
+    top: 0;
   }
+
   background: $white;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
-	
-  .container-fluid {
 
+  .container-fluid {
     @include media-breakpoint-up(lg) {
       max-width: 960px;
       padding-top: rem(16);
       position: relative;
     }
     @include media-breakpoint-up(xl) {
-      max-width: 1240px;
+      max-width: 1280px;
     }
   }
 
@@ -64,9 +60,8 @@
   nav ul {
     justify-content: space-around;
     @include media-breakpoint-down(lg) {
-      // justify-content: space-around;
       display: flex;
-    justify-content: space-around;
+      justify-content: space-around;
     }
   }
 

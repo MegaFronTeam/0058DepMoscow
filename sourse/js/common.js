@@ -119,30 +119,33 @@ function eventHandler() {
   }
 
   /* dropdown */
-	const regionLinks = document.querySelectorAll(
-		"#info .region-link"
-	);
+  const dropdowns = document.querySelectorAll('#info .dropdown');
 
-	const dropdownToggle = document.querySelector(
-		"#info .dropdown-toggle"
-	);
+  if (dropdowns.length) {
+    dropdowns.forEach(dropdown => {
+      const regionLinks = dropdown.querySelectorAll('.region-link');
+      const dropdownToggle = dropdown.querySelector('.dropdown-toggle');
+  
+      if (regionLinks && dropdownToggle) {
+        regionLinks.forEach(link => {
+          link.addEventListener('click', function (event) {
+            event.preventDefault();
+  
+            // Меняем текст в соответствующем dropdown-toggle
+            dropdownToggle.textContent = this.textContent;
+          });
+        });
+      }
+    });
+  }
 
-	if (regionLinks && dropdownToggle) {
-		regionLinks.forEach(link => {
-			link.addEventListener("click", function (event) {
-				event.preventDefault();
-
-				dropdownToggle.textContent = this.textContent;
-			});
-		});
-	}
   /* dropdown */
 	const materials = document.querySelectorAll(
-		".sSearch label"
+		".sSearch-filter--js label"
 	);
 
 	const materialsToggle = document.querySelector(
-		".sSearch .dropdown-toggle"
+		".sSearch-filter--js .dropdown-toggle"
 	);
 
 	if (materials && materialsToggle) {
@@ -229,6 +232,20 @@ function eventHandler() {
   }
 
   //comments
+  
+  let showCommentCards = document.querySelectorAll(".comment-person2");
+  showCommentCards.forEach((el) => {
+    el.addEventListener("click", function (event) {
+      event.preventDefault();
+
+      const btn = el.nextElementSibling.children[0];
+      const comment = el.nextElementSibling.children[1];
+
+      btn.classList.toggle("visually-hidden");
+      comment.classList.toggle("visually-hidden");
+    })
+  })
+
   let showCommentBtns = document.querySelectorAll(".comment-btn-js");
   let hideCommentBtns = document.querySelectorAll(".hide-comment-js");
   showCommentBtns.forEach((btn) => {
@@ -238,7 +255,7 @@ function eventHandler() {
       let control = comment.nextElementSibling
       comment.classList.remove("visually-hidden");
       btn.classList.add("visually-hidden");
-      control.classList.add("visually-hidden");
+      if (control) control.classList.add("visually-hidden");
     });
   });
   hideCommentBtns.forEach((btn) => {
@@ -247,11 +264,11 @@ function eventHandler() {
       let comment = btn.closest(".comment-body-js");
       comment.classList.add("visually-hidden");
 
-      let control = comment.nextElementSibling
-      control.classList.remove("visually-hidden");
-
       let showBtn = comment.previousElementSibling;
       showBtn.classList.remove("visually-hidden");
+
+      let control = comment.nextElementSibling
+      if (control) control.classList.remove("visually-hidden");
     });
   });
 
@@ -265,6 +282,76 @@ function eventHandler() {
           item.classList.add('active')
         }
       })
+    })
+  }
+
+  /* sorts tag */
+  const tags = document.querySelectorAll('.sArticle__item-sort:not(.item-sort-main)')
+  if (tags.length) {
+    tags.forEach(tag => {
+      tag.addEventListener('click', (e)=> {
+        e.preventDefault()
+        if (e.target.closest('.icon')) {
+          tag.remove();
+        }
+      })
+    })
+  }
+
+  /* filter */
+  const filterTitles = document.querySelectorAll('.filter-mobile__f-title')
+  const regLinks = document.querySelectorAll('.region-link')
+
+  if (filterTitles.length) {
+    filterTitles.forEach(title => {
+      title.addEventListener('click', (e) => {
+        const clickedFilter = e.target.closest('.filter-mobile__filter-wrap');
+        const isAlreadyOpen = clickedFilter.classList.contains('show');
+
+        document.querySelectorAll('.filter-mobile__filter-wrap').forEach(filter => {
+          filter.classList.remove('show');
+        });
+
+        if (!isAlreadyOpen) {
+          clickedFilter.classList.add('show');
+        }
+      });
+    });
+
+    regLinks.forEach((el) => {
+      el.addEventListener('click', ()=> {
+        const activeF = document.querySelector('.filter-mobile__filter-wrap.show')
+        if (activeF) {
+          activeF.classList.remove('show');
+        }
+      })
+    })
+  }
+
+  document.addEventListener('click', (e)=> {
+    const activeF = document.querySelector('.filter-mobile__filter-wrap.show')
+    const closest = e.target.closest('.filter-mobile__filter-wrap.show')
+    if (activeF && !closest) {
+      activeF.classList.remove('show');
+    }
+  })
+
+  /* filter control */
+  const filterOpen = document.querySelector('.filter-toggle')
+  const filterWrap= document.querySelector('.filter-mobile')
+  
+	const iconClose = document.querySelector(
+		".filter-mobile .icon-cross"
+	);
+
+  if (filterOpen) {
+    filterOpen.addEventListener('click', ()=> {
+      document.body.classList.add("filters-show");
+			filterWrap.classList.toggle("show");
+    })
+    iconClose.addEventListener('click', ()=> {
+      document.body.classList.remove("filters-show");
+			filterWrap.classList.toggle("show");
     })
   }
 

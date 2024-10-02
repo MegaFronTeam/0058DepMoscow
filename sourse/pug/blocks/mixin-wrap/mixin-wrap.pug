@@ -50,3 +50,7 @@ mixin cookie()
 	+b.cookie
 		p Мы используем файлы cookie для вашего удобства пользования сайтом и повышения качества рекомендаций
 		.btn.btn-warning.fw-700.close Согласен
+
+mixin regionLink(data, region)
+	+b.region-link(data-title=data)
+		a(href='#')= region

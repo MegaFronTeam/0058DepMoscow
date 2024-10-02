@@ -52,6 +52,9 @@ body {
 		pointer-events: visible;
 		opacity: 1;
 	}
+  &.filters-show {
+		overflow: hidden;
+	}
 
 	&::before {
 		content: '';
@@ -544,6 +547,16 @@ p {
 }
 .container-fluid {
   max-width: rem(1232);
+}
+.container,
+.container-fluid,
+.container-lg,
+.container-md,
+.container-sm,
+.container-xl  {
+  @include media-breakpoint-up(lg) {
+    --bs-gutter-x: 48px;
+  }
 }
 
 .btn-warning {

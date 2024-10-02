@@ -72,6 +72,10 @@
 	.wrap-dark {
     display: flex;
     justify-content: space-between;
+    
+    a {
+      --bs-link-color-rgb: #{$primary};
+    }
 
     font-size: rem(14);
     @include media-breakpoint-up(lg) {

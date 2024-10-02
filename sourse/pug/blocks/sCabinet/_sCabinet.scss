@@ -1,23 +1,15 @@
 // start .sCabinet
 .sCabinet {
-	// --sPT: #{rem()};
 	--sPB: #{rem(32)};
-	// --sTPB: #{rem()};
+
   @include media-breakpoint-up(lg) {
-    --sPT: #{rem(24)};
+    --sPT: #{rem(96)};
     --sPB: #{rem(64)};
     --sTPB: #{rem(20)};
   }
-	
-	&__row{
-		// --bs-gutter-x: #{rem()};
-		// --bs-gutter-y: #{rem()};
-	}
-	.section-title{
-		
-	}
-  
+
   --padding: 16px;
+
 	.inner-wrap {
     background: $white;
     border-radius: 16px;
@@ -195,39 +187,12 @@
 	@include media-breakpoint-down(xl) {}
 } // end.sCabinet
 
-.region-link {
-  position: relative;
-  padding: rem(8) rem(10) rem(8) rem(36);
-  cursor: pointer;
-
-  &:hover {
-    background: $gray-100;
-    a {
-      color: $black;
-    }
-  }
-	@include media-breakpoint-up(lg) {
-    font-size: rem(18);
-  }
-
-  &::before {
-    content: attr(data-title);
-    position: absolute;
-    top: 50%;
-    left: 16px;
-    font-weight: 700;
-    color: $red-300;
-    transform: translateY(-50%);
-  }
-  a {
-    display: block;
-  }
-
-}
-
 
 .dropdown {
-  background: $white;
+  &:not(.dropdown_no-border) {
+    background: $white;
+  }
+
   .dropdown-toggle {
     padding: rem(8) rem(16);
     border: var(--bs-border-width) solid #757b8a;
@@ -252,6 +217,12 @@
     &_gray {
       background-color: #F7F7F7;
       border-color: transparent;
+    }
+  }
+  &_no-border {
+    .dropdown-toggle {
+      border-color: transparent;
+      background-color: white;
     }
   }
 }
