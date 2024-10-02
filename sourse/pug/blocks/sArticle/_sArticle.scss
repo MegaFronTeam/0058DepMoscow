@@ -659,7 +659,9 @@
       margin-bottom: rem(8);
     }
     &:last-child {
+      @include media-breakpoint-up(lg) {
       margin-bottom: 0;
+      }
     }
   }
   .item_gray {
