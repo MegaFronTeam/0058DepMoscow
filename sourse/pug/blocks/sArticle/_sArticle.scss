@@ -658,6 +658,9 @@
     .title {
       margin-bottom: rem(8);
     }
+    &:last-child {
+      margin-bottom: 0;
+    }
   }
   .item_gray {
     padding: rem(16);
