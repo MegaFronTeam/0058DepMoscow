@@ -3,17 +3,29 @@ mixin mnu()
 	nav
 		ul.menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
 			each link in nav
-				li.menu-item(itemprop="item" )
-					a(href= link.url itemprop="url")
-						+icon(`${link.icon}`)
-						span=link.name
+				if link.name == "Главная"
+					li.menu-item.active(itemprop="item" )
+						a(href= link.url itemprop="url")
+							+icon(`${link.icon}`)
+							span=link.name
+				else
+					li.menu-item(itemprop="item" )
+						a(href= link.url itemprop="url")
+							+icon(`${link.icon}`)
+							span=link.name
 
 mixin mnu-mob()
 	nav
 		ul.menu(itemscope itemtype="http://schema.org/SiteNavigationElement")
 			each link in nav
-				li.menu-item(itemprop="item" )
-					a(href= link.url itemprop="url")
-						+icon(`${link.icon}`)
-						span=link.nameMob
+				if link.name == "Главная"
+					li.menu-item.active(itemprop="item" )
+						a(href= link.url itemprop="url")
+							+icon(`${link.icon}`)
+							span=link.nameMob
+				else
+					li.menu-item(itemprop="item" )
+						a(href= link.url itemprop="url")
+							+icon(`${link.icon}`)
+							span=link.nameMob
 //- menu

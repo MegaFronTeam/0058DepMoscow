@@ -133,6 +133,7 @@ function eventHandler() {
   
             // Меняем текст в соответствующем dropdown-toggle
             dropdownToggle.textContent = this.textContent;
+            dropdownToggle.classList.remove('unselected')
           });
         });
       }
@@ -354,6 +355,31 @@ function eventHandler() {
 			filterWrap.classList.toggle("show");
     })
   }
+
+  $('.custom-select-js[multiple]').select2({
+    templateSelection: function(selectedItems) {
+      var selected = $('.custom-select-js[multiple]').select2('data');
+
+      var firstItem = selected[0].text;
+  
+      return firstItem;
+    }
+  });
+  $('.custom-select-js[multiple]').on('select2:select select2:unselect', function() {
+    setTimeout(function() {
+      var choices = $('.select2-selection--multiple .select2-selection__choice');
+
+      // Если выбрано больше двух, скрываем все элементы, кроме первого и "ещё N"
+      if (choices.length > 1) {
+        var remainingCount = choices.length - 1;
+        var additionalLabel = 'ещё ' + remainingCount;
+
+        // Оставляем последний элемент как индикатор "ещё N"
+        choices.slice(1).remove();
+        $('.select2-selection--multiple .select2-selection__rendered').append('<li class="select2-selection__choice select2-selection__choice--additional"><span class="select2-selection__choice__display">' + additionalLabel + '</span></li>');
+      }
+    }, 0);
+  });
 
 }
 if (document.readyState !== "loading") {

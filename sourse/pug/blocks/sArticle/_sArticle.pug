@@ -229,17 +229,17 @@ mixin contacts(info)
 			li: a(href="#")
 				+icon('telegram')
 				| @parivan
-		+e.item.item_gray.small
-			+e.part
+		+e.item.item_gray.small: .row.items-row
+			.col-lg-4: +e.part
 				.title.fw-700 Округ
 				.text Центральный административный округ
-			+e.part
+			.col-lg-4: +e.part
 				.title.fw-700 Район работы
 				.text Пресненский район
-			+e.part
+			.col-lg-4: +e.part
 				.title.fw-700 Стаж работы
 				.text 15 лет
-			+e.part
+			.col-lg-12: +e.part
 				.title.fw-700 Экспертиза
 				.badges
 					.badge GR

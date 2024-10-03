@@ -30,6 +30,25 @@ mixin input(placeholder,  t='text', label, inputmode= t, name= t)
 		else
 			+t(t,placeholder, name)&attributes(attributes)
 			block
+
+mixin input1(placeholder,  t='text', label, inputmode= t, name= t)
+	mixin t(t='text',placeholder, name= t)
+		if t== "textarea"
+			+e.TEXTAREA.input.form-control(name=name placeholder=placeholder)
+		else if t== "select"
+			+e.SELECT.input.form-select.select-list(name= name data-placeholder= placeholder).custom-select-js&attributes(attributes)
+				+regionLink('A', 'Академический')
+				+regionLink('', 'Алексеевский')
+				+regionLink('', 'Алтуфьевский')
+	+e.input-wrap.form-group(class= (t == 'select' ? 'custom-select-wrap' : ""))
+		if label
+			label
+				+t(t,placeholder, name)&attributes(attributes)
+				+e.SPAN.input-title= label
+				block
+		else
+			+t(t,placeholder, name)&attributes(attributes)
+			block
 	// +e.input-wrap
 //- wrapper for form
 mixin form-wrap(inp)

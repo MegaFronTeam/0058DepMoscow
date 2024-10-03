@@ -45,11 +45,10 @@ mixin sCabinet(data)
 					+form-wrap
 						+input("Участник 2024",'text','Статус')(disabled)
 						+input("Введите Вашу должность",'text','Должность')(required)
-						+input("Введите Ваш стаж",'number','Стаж (лет)')(required)
 						.form-wrap__input-wrap.form-group
 							label.label-required: span.form-wrap__input-title Округ
 							.dropdown
-								.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Выберите округ
+								.dropdown-toggle.unselected(type="button" data-bs-toggle="dropdown" aria-expanded="false") Выберите округ
 								ul.dropdown-menu
 									.custom-scroll()
 										li: +regionLink('A', 'Академический')
@@ -69,7 +68,7 @@ mixin sCabinet(data)
 										li: +regionLink('', 'Басманный')
 						label.label-required: span.form-wrap__input-title Район
 						.dropdown
-							.dropdown-toggle(type="button" data-bs-toggle="dropdown" aria-expanded="false") Выберите район
+							.dropdown-toggle.unselected(type="button" data-bs-toggle="dropdown" aria-expanded="false") Выберите район
 							ul.dropdown-menu
 								.custom-scroll()
 									li: +regionLink('A', 'Академический')
@@ -88,6 +87,7 @@ mixin sCabinet(data)
 									li: +regionLink('', 'Басманный')
 									li: +regionLink('', 'Басманный')
 						+input('Инвестиционные проекты','select', 'Экспертиза')(required multiple data-placeholder="Выберите экспертизу" class="сustom-select-js")
+						+input("Введите Ваш стаж",'number','Стаж (лет)')(required)
 						+input('Расскажите о себе','textarea', 'О себе')(required)
 						+input('Например, путешествия','textarea', 'Хобби')(required)
 						button.btn.btn-dark.mb-2(type="submit") Сохранить
